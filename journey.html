@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>EcoMind - Eco Journey</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <h1>🌱 Start Your Eco Journey</h1>
+
+    <p>
+        Choose a sustainable habit and make a difference!
+    </p>
+
+    <h2>🌍 Today's Eco Challenges</h2>
+
+    <h3>🏆 Eco Points: {{ points }}</h3>
+
+    <hr>
+
+    <h3>💧 Save Water</h3>
+
+    <p>
+        Turn off the tap while brushing your teeth.
+    </p>
+
+    <form action="/complete" method="POST">
+
+        <input type="hidden"
+               name="challenge"
+               value="Save Water">
+
+        <button type="submit">
+            Complete +10 Points
+        </button>
+
+    </form>
+
+    <br>
+
+    <h3>🌳 Plant a Tree</h3>
+
+    <p>
+        Plant or care for a tree today.
+    </p>
+
+    <form action="/complete" method="POST">
+
+        <input type="hidden"
+               name="challenge"
+               value="Plant a Tree">
+
+        <button type="submit">
+            Complete +10 Points
+        </button>
+
+    </form>
+
+    <br>
+
+    <h3>♻️ Reduce Plastic</h3>
+
+    <p>
+        Avoid using single-use plastic today.
+    </p>
+
+    <form action="/complete" method="POST">
+
+        <input type="hidden"
+               name="challenge"
+               value="Reduce Plastic">
+
+        <button type="submit">
+            Complete +10 Points
+        </button>
+
+    </form>
+
+    <br><br>
+
+    <a href="/dashboard">
+        <button>📊 Dashboard</button>
+    </a>
+
+    <br><br>
+
+    <a href="/profile">
+        <button>👤 My Profile</button>
+    </a>
+
+    <br><br>
+
+    <a href="/logout">
+        <button>🚪 Logout</button>
+    </a>
+
+</body>
+
+</html>

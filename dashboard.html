@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>EcoMind - Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <h1>🌱 EcoMind Dashboard</h1>
+
+    <h2>👤 Welcome, {{ username }}!</h2>
+
+    <h3>🏆 Your Eco Points: {{ points }}</h3>
+
+    <hr>
+
+    <h2>🌱 Eco Progress</h2>
+
+    <div style="
+        width: 80%;
+        background: #ddd;
+        border-radius: 10px;
+        margin: auto;
+        overflow: hidden;
+    ">
+
+        <div style="
+            width: {{ [points, 200] | min }}%;
+            background: #4caf50;
+            color: white;
+            padding: 10px 0;
+            border-radius: 10px;
+        ">
+            {{ points }} / 200 Points
+        </div>
+
+    </div>
+
+    <br>
+
+    <h2>🏅 Achievements</h2>
+
+    {% if points >= 100 %}
+
+        <p>🌍 Planet Protector — 100+ Points</p>
+
+    {% elif points >= 50 %}
+
+        <p>🌳 Eco Hero — 50+ Points</p>
+
+    {% elif points >= 30 %}
+
+        <p>🌿 Green Starter — 30+ Points</p>
+
+    {% elif points >= 10 %}
+
+        <p>🌱 Eco Beginner — 10+ Points</p>
+
+    {% else %}
+
+        <p>🔒 Complete challenges to unlock achievements!</p>
+
+    {% endif %}
+
+    <hr>
+
+    <h2>✅ Completed Challenges</h2>
+
+    {% if completed_challenges %}
+
+        {% for challenge in completed_challenges %}
+
+            <p>
+                🌱 {{ challenge[0] }}
+                — {{ challenge[1] }} ✅
+            </p>
+
+        {% endfor %}
+
+    {% else %}
+
+        <p>No challenges completed yet.</p>
+
+    {% endif %}
+
+    <hr>
+
+    <h2>🌍 Your Eco Journey</h2>
+
+    <p>
+        Keep completing sustainable challenges
+        and earn more points! 🌱
+    </p>
+
+    <a href="/journey">
+        <button>🌱 Continue Eco Journey</button>
+    </a>
+
+    <br><br>
+
+    <a href="/profile">
+        <button>👤 My Profile</button>
+    </a>
+
+    <br><br>
+
+    <a href="/">
+        <button>🏠 Home</button>
+    </a>
+
+    <br><br>
+
+    <a href="/logout">
+        <button>🚪 Logout</button>
+    </a>
+
+</body>
+
+</html>
