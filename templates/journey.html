@@ -1,0 +1,33 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EcoMind - Eco Journey</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>🌍 Your Eco Journey</h1>
+    <h2>🏆 Your Eco Points: {{ points }}</h2>
+
+    <h3>Complete a Sustainable Challenge</h3>
+
+    <form method="POST" action="/complete">
+        <label>Choose a challenge:</label>
+        <select name="challenge" required>
+            <option value="Save Water">Save Water</option>
+            <option value="Plant a Tree">Plant a Tree</option>
+            <option value="Avoid Plastic">Avoid Plastic</option>
+            <option value="Save Electricity">Save Electricity</option>
+            <option value="Use Public Transport">Use Public Transport</option>
+        </select>
+        <br><br>
+        <button type="submit">Complete Challenge (+10 Points)</button>
+    </form>
+
+    <br>
+    <a href="/dashboard">Dashboard</a><br><br>
+    <a href="/profile">My Profile</a><br><br>
+    <a href="/logout">Logout</a>
+</body>
+</html>
+```
